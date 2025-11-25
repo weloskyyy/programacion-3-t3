@@ -20,16 +20,17 @@ namespace CRUDT3.Controllers
         [HttpPost]
         public IActionResult Create(Contactomodel contacto)
         {
+           
+            if (!ModelState.IsValid)
+            {
+                return View(contacto);
+            }
+
             contacto.IdContacto = FakeDb.Contactos.Max(c => c.IdContacto) + 1;
             FakeDb.Contactos.Add(contacto);
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit(int id)
-        {
-            var contacto = FakeDb.Contactos.FirstOrDefault(c => c.IdContacto == id);
-            return View(contacto);
-        }
 
         [HttpPost]
         public IActionResult Edit(Contactomodel contacto)
