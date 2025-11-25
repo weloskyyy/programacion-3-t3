@@ -42,6 +42,14 @@ namespace CRUDT3.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult Details(int id)
+        {
+            var contacto = FakeDb.Contactos.FirstOrDefault(c => c.IdContacto == id);
+            if (contacto == null)
+                return NotFound();
+
+            return View(contacto);
+        }
 
         public IActionResult Delete(int id)
         {
