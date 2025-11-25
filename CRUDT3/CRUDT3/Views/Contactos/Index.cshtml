@@ -1,6 +1,10 @@
-﻿@model List<CRUDT3.Models.Contactomodel>
+@model List<CRUDT3.Models.Contactomodel>
 
 <h1>Lista de Contactos</h1>
+
+<div class="alert alert-primary mt-2">
+    Total de contactos: @Model.Count
+</div>
 
 <a class="btn btn-primary" href="/Contactos/Create">Crear nuevo contacto</a>
 
@@ -23,10 +27,9 @@
                 <td>@item.Telefono</td>
                 <td>@item.Correo</td>
                 <td>
-                    <a class="btn btn-warning" href="/Contactos/Edit/@item.IdContacto">Editar</a>
-                    <a class="btn btn-danger" href="/Contactos/Delete/@item.IdContacto">Eliminar</a>
+                    <a href="/Contactos/Edit/@item.IdContacto" class="btn btn-warning">Editar</a>
+                    <a href="/Contactos/Delete/@item.IdContacto" class="btn btn-danger">Eliminar</a>
                     <a href="/Contactos/Details/@item.IdContacto" class="btn btn-info">Detalles</a>
-
                 </td>
             </tr>
         }
