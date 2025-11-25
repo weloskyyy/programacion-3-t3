@@ -2,15 +2,24 @@
 
 <h1>Crear Contacto</h1>
 
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
 <form method="post">
     <label>Nombre</label>
     <input class="form-control" name="Nombre" />
+ 
+    <span class="text-danger">@Html.ValidationMessage("Nombre")</span>
 
     <label>Telefono</label>
     <input class="form-control" name="Telefono" />
+  
+    <span class="text-danger">@Html.ValidationMessage("Telefono")</span>
 
     <label>Correo</label>
     <input class="form-control" name="Correo" />
+   
+    <span class="text-danger">@Html.ValidationMessage("Correo")</span>
 
     <button class="btn btn-success mt-3">Guardar</button>
 </form>
