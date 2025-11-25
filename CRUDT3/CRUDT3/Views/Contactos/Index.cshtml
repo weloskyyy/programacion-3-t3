@@ -1,0 +1,32 @@
+﻿@model List<CRUDT3.Models.Contactomodel>
+
+<h1>Lista de Contactos</h1>
+
+<a class="btn btn-primary" href="/Contactos/Create">Crear nuevo contacto</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdContacto</td>
+                <td>@item.Nombre</td>
+                <td>@item.Telefono</td>
+                <td>@item.Correo</td>
+                <td>
+                    <a class="btn btn-warning" href="/Contactos/Edit/@item.IdContacto">Editar</a>
+                    <a class="btn btn-danger" href="/Contactos/Delete/@item.IdContacto">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
